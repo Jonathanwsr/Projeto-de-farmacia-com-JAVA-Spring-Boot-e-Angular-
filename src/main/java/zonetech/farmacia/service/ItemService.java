@@ -42,12 +42,14 @@ public class ItemService {
         item.setDescription(itemDatails.getDescription());
         item.setQuantity(itemDatails.getQuantity());
         item.setPrice(itemDatails.getPrice());
+        item.setManufacturingDate(itemDatails.getManufacturingDate());
+        item.setLocationStock(itemDatails.getLocationStock());
         return itemRepository.save(item);
 
     }
 
     public void deleteItem(Long id) {
-        Item item = itemRepository.findById(id).orElseThrow(() -> new RuntimeException("Item não encontrado"));
+        Item item = itemRepository.findById(id).orElseThrow(() -> new RuntimeException("Item não encontrado:" + id));
         itemRepository.delete(item);
 
 
