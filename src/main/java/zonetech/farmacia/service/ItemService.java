@@ -47,7 +47,7 @@ public class ItemService {
     }
 
     public void deleteItem(Long id) {
-        Item item = itemRepository.findById(id).orElseThrow(() -> new RuntimeException("Item não encontrado"));
+        Item item = itemRepository.findById(id).orElseThrow(() -> new RuntimeException("Item não encontrado:" + id));
         itemRepository.delete(item);
 
 
